@@ -21,7 +21,7 @@
             attributes: Object.attributes || "src",
             dataAttributes: Object.dataAttributes || "data-src",
             offsetTop: Object.offsetTop || 0,
-            offsetLeft: Object.offsetLeft || 0,
+            // offsetLeft: Object.offsetLeft || 0,
             duraction: Object.duraction || 800,
             delay: Object.delay || 500,
             ele: Object.ele || "scroll"
@@ -97,7 +97,8 @@
                 var lefts = items[i].getBoundingClientRect().left;
                 var rights = items[i].getBoundingClientRect().right;
 
-                if(tops <= (vHeight + this.defaults.offsetTop) && bottoms > (0 - this.defaults.offsetTop) && rights >= (0 - this.defaults.offsetLeft) && lefts <= (vWidth + this.defaults.offsetLeft)) {
+                // if(tops <= (vHeight + this.defaults.offsetTop) && bottoms > (0 - this.defaults.offsetTop) && rights >= (0 - this.defaults.offsetLeft) && lefts <= (vWidth + this.defaults.offsetLeft)) {
+              if(tops <= (vHeight + this.defaults.offsetTop) && bottoms > (0 - this.defaults.offsetTop) || (tops === 0 && bottoms === 0 && lefts === 0 && rights === 0)) {
                     items[i][attr] = items[i].getAttribute("data-src");
                 }
             }
